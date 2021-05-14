@@ -56,7 +56,7 @@ namespace AuthorsService.Api
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EventDto Catalog API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AuthorsService API V1");
 
             });
 
