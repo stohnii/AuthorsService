@@ -1,6 +1,7 @@
 ﻿using AuthorsService.BAL;
 using AuthorsService.BAL.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -29,8 +30,16 @@ namespace AuthorsService.Api.Controllers
         [HttpGet("all/{onlyActive}")]
         public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAll(bool onlyActive = true)
         {
-            var result = await _authorsManager.GetAllAsync(onlyActive);
-            return Ok(result);
+            try
+            {
+                var result = await _authorsManager.GetAllAsync(onlyActive);
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.StackTrace);
+            }
         }
 
         [HttpPost]
