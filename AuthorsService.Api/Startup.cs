@@ -38,7 +38,7 @@ namespace AuthorsService.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Authors API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AuthorsService API", Version = "v1" });
             });
         }
 
@@ -57,7 +57,6 @@ namespace AuthorsService.Api
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "AuthorsService API V1");
-
             });
 
             app.UseRouting();
