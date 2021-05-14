@@ -38,7 +38,7 @@ namespace AuthorsService.Api.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(ex.StackTrace);
+                return Ok(new { stack = ex.StackTrace, message = ex.Message, innerMessage = ex.InnerException?.Message ?? "empty"});
             }
         }
 
